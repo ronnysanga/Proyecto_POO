@@ -10,5 +10,8 @@ package ec.edu.espol.model;
  * @author dell
  */
 public class Premio {
-    
+    private int lugar;
+    private int idConcurso;
+    private String descripcion;
+    private Concurso concurso;
 }

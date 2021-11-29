@@ -7,6 +7,9 @@ package ec.edu.espol.model;
 
 import java.util.Scanner;
 
+import java.util.ArrayList;
+
+
 /**
  *
  * @author dell
@@ -43,5 +46,9 @@ public class Dueño {
     public String toString() {
         return "Due\u00f1o{" + "id=" + id + ", nombres=" + nombres + ", apellidos=" + apellidos + ", email=" + email + '}';
     }
+
+    private String direccion;
+    private ArrayList<Mascota> mascotas;
+
     
 }

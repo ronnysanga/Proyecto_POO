@@ -10,5 +10,9 @@ package ec.edu.espol.model;
  * @author dell
  */
 public class Persona {
+    protected String nombres;
+    protected String apellidos;
+    protected String telefono;
+    protected String email;
     
 }

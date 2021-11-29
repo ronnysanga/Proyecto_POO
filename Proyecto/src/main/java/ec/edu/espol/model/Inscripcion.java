@@ -5,10 +5,19 @@
  */
 package ec.edu.espol.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author dell
  */
 public class Inscripcion {
+    private int idMascotas;
+    private int idConcurso;
+    private double valor;
+    private double descuento;
+    private Mascota mascotas;
+    private Concurso concurso;
+    private ArrayList<Evaluacion> evaluaciones;
     
 }
