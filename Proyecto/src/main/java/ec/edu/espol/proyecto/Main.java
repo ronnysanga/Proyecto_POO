@@ -5,6 +5,9 @@
  */
 package ec.edu.espol.proyecto;
 
+import ec.edu.espol.model.Dueño;
+import java.util.Scanner;
+
 /**
  *
  * @author dell
@@ -20,6 +23,10 @@ public class Main {
         System.out.println("hola sam ");
 
         System.out.println("todo el mundo mano abajOTE");
+        Scanner sc = new Scanner(System.in);
+        Dueño yop = Dueño.nextDueño(sc);
+        System.out.println(yop);
+        
     }
     
 }
