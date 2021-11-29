@@ -5,10 +5,16 @@
  */
 package ec.edu.espol.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author dell
  */
 public class Criterio {
+    private int idConcurso;
+    private String descripcion;
+    private ArrayList<Evaluacion> evaluaciones;
+    private Concurso concurso;
     
 }

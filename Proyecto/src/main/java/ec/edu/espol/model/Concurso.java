@@ -5,10 +5,22 @@
  */
 package ec.edu.espol.model;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
  * @author dell
  */
 public class Concurso {
+    private double costo;
+    private String nombre;
+    private Date fecha;
+    private Date fechainscripcion;
+    private Date fechaCierreinscripcion;
+    private String tematica;
+    private ArrayList<Inscripcion> inscripciones;
+    private ArrayList<Premio> premios;
+    private ArrayList<Criterio> criterios;
     
 }

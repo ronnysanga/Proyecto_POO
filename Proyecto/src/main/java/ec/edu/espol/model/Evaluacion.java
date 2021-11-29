@@ -10,5 +10,12 @@ package ec.edu.espol.model;
  * @author dell
  */
 public class Evaluacion {
+    private int idinscripcion;
+    private int idMiembroJurado;
+    private int idCriterio;
+    private double nota;
+    private Inscripcion inscripcion;
+    private MiembroJurado miembroJurado;
+    private Criterio criterio;
     
 }

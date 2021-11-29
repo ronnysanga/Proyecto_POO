@@ -5,10 +5,14 @@
  */
 package ec.edu.espol.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author dell
  */
 public class MiembroJurado {
+    private String perfil;
+    private ArrayList<Evaluacion> evaluaciones;
     
 }

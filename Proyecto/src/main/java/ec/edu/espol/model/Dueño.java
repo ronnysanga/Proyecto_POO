@@ -5,10 +5,14 @@
  */
 package ec.edu.espol.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author dell
  */
 public class Dueño {
+    private String direccion;
+    private ArrayList<Mascota> mascotas;
     
 }
