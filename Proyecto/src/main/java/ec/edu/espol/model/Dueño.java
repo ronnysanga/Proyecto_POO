@@ -19,6 +19,8 @@ public class Dueño {
     private String nombres;
     private String apellidos;
     private String email;
+    private String direccion;
+    private ArrayList<Mascota> mascotas;
 
     public Dueño(String nombres, String apellidos, String email) {
         this.nombres = nombres;
@@ -39,16 +41,12 @@ public class Dueño {
         
     }
 
-    
-    
+   
     @Override
     
     public String toString() {
         return "Due\u00f1o{" + "id=" + id + ", nombres=" + nombres + ", apellidos=" + apellidos + ", email=" + email + '}';
     }
-
-    private String direccion;
-    private ArrayList<Mascota> mascotas;
 
     
 }
