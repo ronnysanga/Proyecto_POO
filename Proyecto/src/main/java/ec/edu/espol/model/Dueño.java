@@ -42,7 +42,7 @@ public class Dueño extends Persona{
     }
     
     //Corregir readfromfile
-    public static ArrayList<Dueño> readfile(String nomfile){
+    public static ArrayList<Dueño> readfromfile(String nomfile){
         ArrayList<Dueño> dueños = new ArrayList<>();
         try(Scanner sc = new Scanner(new File(nomfile))){
             while(sc.hasNextLine()){
@@ -51,7 +51,6 @@ public class Dueño extends Persona{
             Dueño d = new Dueño(Integer.parseInt(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], tokens[5]);
             dueños.add(d);
             }//se podia agregar a los dueños que habia     
-            return dueños;
         }
         catch(Exception e){
             System.out.println(e.getMessage());
