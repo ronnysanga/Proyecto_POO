@@ -55,7 +55,6 @@ public class MiembroJurado extends Persona {
   
     public static MiembroJurado nextMiembroJurado (Scanner sc){
         System.out.println("Su id es:");
-        System.out.println(MiembroJurado.readfromfile("miembroJurados.txt").size());
         int id = MiembroJurado.readfromfile("miembroJurados.txt").size() + 1;     
         System.out.println(id);
         System.out.println("Ingrese perfil: ");
@@ -76,7 +75,7 @@ public class MiembroJurado extends Persona {
  
     @Override
     public String toString() {
-        return String.valueOf(this.id)+this.perfil+"-"+this.nombres+"-"+ this.apellidos+"-"+this.telefono+"-"+this.email;
+        return String.valueOf(this.id)+"-"+this.perfil+"-"+this.nombres+"-"+ this.apellidos+"-"+this.telefono+"-"+this.email;
     }
     
 }
