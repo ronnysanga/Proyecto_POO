@@ -41,7 +41,7 @@ public class MiembroJurado extends Persona {
         try(Scanner sc = new Scanner(new File(nomfile))){
             while(sc.hasNextLine()){
                 String linea = sc.nextLine();
-                String[] tokens = linea.split("|");
+                String[] tokens = linea.split("\\|");
                 MiembroJurado mj = new MiembroJurado(Integer.parseInt(tokens[0]),tokens[1],tokens[2],tokens[3],tokens[4],tokens[5]);
                 mJurados.add(mj);
             }//se podia agregar a los dueños que habia     

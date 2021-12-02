@@ -54,7 +54,7 @@ public class Concurso {
         try(Scanner sc = new Scanner(new File(nomfile))){
             while(sc.hasNextLine()){
                 String linea = sc.nextLine();
-                String[] tokens = linea.split("|");
+                String[] tokens = linea.split("\\|");
                 //PREGUNTAR EL CAMBIO DE STRING A DATE
                 //id, double costo, String nombre, Date fecha, Date fechainscripcion, Date fechaCierreinscripcion, String tematica
                 Concurso conc = new Concurso(Integer.parseInt(tokens[0]),Double.parseDouble(tokens[1]),tokens[2], LocalDate.parse(tokens[3]), LocalDate.parse(tokens[4]),LocalDate.parse(tokens[5]),tokens[6]);
