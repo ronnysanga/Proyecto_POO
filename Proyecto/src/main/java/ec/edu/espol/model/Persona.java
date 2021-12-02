@@ -9,17 +9,23 @@ package ec.edu.espol.model;
  *
  * @author dell
  */
-public class Persona {   
+public class Persona { 
+    protected int id;
     protected String nombres;
     protected String apellidos;
     protected String telefono;
     protected String email;
 
-    public Persona(String nombres, String apellidos, String telefono, String email) {
+    public Persona(int id, String nombres, String apellidos, String telefono, String email) {
+        this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.telefono = telefono;
         this.email = email;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getNombres() {
@@ -37,7 +43,6 @@ public class Persona {
     public String getEmail() {
         return email;
     }
-    
-    
+
     
 }

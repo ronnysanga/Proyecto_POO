@@ -18,14 +18,11 @@ import java.util.ArrayList;
  * @author dell
  */
 public class Dueño extends Persona{
-    private int id;
     private String direccion;
     private ArrayList<Mascota> mascotas;
 
-
     public Dueño(int id, String direccion, String nombres, String apellidos, String telefono, String email) {
-        super(nombres, apellidos, telefono, email);
-        this.id = id;
+        super(id, nombres, apellidos, telefono, email);
         this.direccion = direccion;
     }
 
@@ -48,8 +45,8 @@ public class Dueño extends Persona{
             while(sc.hasNextLine()){
             String linea = sc.nextLine();
             String[] tokens = linea.split("|");
-            Dueño d = new Dueño(Integer.parseInt(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], tokens[5]);
-            dueños.add(d);
+            Dueño dueñ = new Dueño(Integer.parseInt(tokens[0]),tokens[1],tokens[2],tokens[3],tokens[4],tokens[5]);
+            dueños.add(dueñ);
             }//se podia agregar a los dueños que habia     
         }
         catch(Exception e){
@@ -60,8 +57,10 @@ public class Dueño extends Persona{
     
     public static Dueño nextDueño(Scanner sc){
         //this.id+"|"+this.direccion+"|"+this.nombres+"|"+this.apellidos+"|"+this.telefono+"|"+this.email
-        System.out.println("Ingrese id:");
-        int id = sc.nextInt();
+        System.out.println("Su id es:");
+        System.out.println(Dueño.readfromfile("dueños.txt").size());
+        int id = Dueño.readfromfile("dueños.txt").size() + 1;     
+        System.out.println(id);
         System.out.println("Ingrese direccion: ");
         String direc = sc.next();
         System.out.println("Ingrese nombre: ");

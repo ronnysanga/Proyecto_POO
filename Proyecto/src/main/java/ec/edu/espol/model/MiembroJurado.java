@@ -18,11 +18,9 @@ import java.util.Scanner;
 public class MiembroJurado extends Persona {
     private String perfil;
     private ArrayList<Evaluacion> evaluaciones;
-    private String direccion;
-    private String id;
 
-    public MiembroJurado(String perfil, String nombres, String apellidos, String telefono, String email) {
-        super(nombres, apellidos, telefono, email);
+    public MiembroJurado(int id, String perfil, String nombres, String apellidos, String telefono, String email) {
+        super(id, nombres, apellidos, telefono, email);
         this.perfil = perfil;
    
     }
@@ -30,7 +28,7 @@ public class MiembroJurado extends Persona {
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true)))
         {
             //datosd1|mas1|mas2
-            pw.println(this.perfil+"|"+this.nombres+"|"+this.apellidos+"|"+this.telefono+"|"+this.email); 
+            pw.println(this.id+"|"+this.perfil+"|"+this.nombres+"|"+this.apellidos+"|"+this.telefono+"|"+this.email); 
             //for mascotas y append           
         }
         catch(Exception e){
@@ -42,10 +40,10 @@ public class MiembroJurado extends Persona {
         ArrayList<MiembroJurado> mJurados = new ArrayList<>();
         try(Scanner sc = new Scanner(new File(nomfile))){
             while(sc.hasNextLine()){
-            String linea = sc.nextLine();
-            String[] tokens = linea.split("|");
-            MiembroJurado m = new MiembroJurado(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4]);
-            mJurados.add(m);
+                String linea = sc.nextLine();
+                String[] tokens = linea.split("|");
+                MiembroJurado mj = new MiembroJurado(Integer.parseInt(tokens[0]),tokens[1],tokens[2],tokens[3],tokens[4],tokens[5]);
+                mJurados.add(mj);
             }//se podia agregar a los dueños que habia     
      
         }
@@ -55,35 +53,30 @@ public class MiembroJurado extends Persona {
         return mJurados;
     }
   
-    public static String nextMiembroJurado (Scanner scan){
-        System.out.println("Ingrese su perfil: ");
+    public static MiembroJurado nextMiembroJurado (Scanner sc){
+        System.out.println("Su id es:");
+        System.out.println(MiembroJurado.readfromfile("miembroJurados.txt").size());
+        int id = MiembroJurado.readfromfile("miembroJurados.txt").size() + 1;     
+        System.out.println(id);
+        System.out.println("Ingrese perfil: ");
+        String per = sc.next();
+        System.out.println("Ingrese nombre: ");
+        String nom = sc.next();
+        System.out.println("Ingrese apellido: ");
+        String ape = sc.next();
+        System.out.println("Ingrese telefono: ");
+        String phone = sc.next();
+        System.out.println("Ingrese su email: ");
+        String ema = sc.next();
           
-        String perfil = scan.next();
-        return perfil;  
+        MiembroJurado jurado = new MiembroJurado(id, per, nom, ape, phone, ema);
+        return jurado;  
            
-    }
-    
-    //public void
-
-    public String getPerfil() {
-        return perfil;
-    }
-
-    public ArrayList<Evaluacion> getEvaluaciones() {
-        return evaluaciones;
-    }
-
-    public void setPerfil(String perfil) {
-        this.perfil = perfil;
-    }
-
-    public void setEvaluaciones(ArrayList<Evaluacion> evaluaciones) {
-        this.evaluaciones = evaluaciones;
     }
  
     @Override
     public String toString() {
-        return String.valueOf(this.perfil)+"-"+this.nombres+"-"+ this.apellidos+"-"+this.telefono+"-"+this.email;
+        return String.valueOf(this.id)+this.perfil+"-"+this.nombres+"-"+ this.apellidos+"-"+this.telefono+"-"+this.email;
     }
     
 }

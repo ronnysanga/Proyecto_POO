@@ -6,6 +6,7 @@
 package ec.edu.espol.proyecto;
 
 import ec.edu.espol.model.Dueño;
+import ec.edu.espol.util.MenuOpciones;
 import java.util.Scanner;
 
 /**
@@ -19,10 +20,12 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-
+        /*
         Scanner sc = new Scanner(System.in);
         Dueño yop = Dueño.nextDueño(sc);
         System.out.println(yop);
+        */
+        MenuOpciones.menu();
 
     }
     
