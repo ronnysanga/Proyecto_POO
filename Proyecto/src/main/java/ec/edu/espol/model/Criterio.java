@@ -44,7 +44,7 @@ public class Criterio {
             while(sc.hasNextLine()){
             String linea = sc.nextLine();
             String[] tokens = linea.split("|");
-            Criterio crite = new Premio((tokens[0]),tokens[1]);
+            Criterio crite = new Criterio((tokens[0]),tokens[1]);
             criterios.add(crite);
             }//se podia agregar a los premios que habia     
         }
@@ -61,7 +61,7 @@ public class Criterio {
         System.out.println("Ingrese descripcion: ");
         String descrip = sc.next();
         
-        Criterio criterios = new Premio(id, descrip);
+        Criterio criterios = new Criterio(id, descrip);
         return criterios;  
            
     }
