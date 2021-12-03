@@ -5,7 +5,9 @@
  */
 package ec.edu.espol.util;
 
+import ec.edu.espol.model.Concurso;
 import ec.edu.espol.model.Dueño;
+import ec.edu.espol.model.Mascota;
 import ec.edu.espol.model.MiembroJurado;
 import java.util.Scanner;
 
@@ -37,19 +39,32 @@ public class MenuOpciones {
                     
                 case '2':
                     System.out.println("Ingreso la opcion 2");
-                    break;
+                    System.out.println("Ingrese los datos de la mascota: ");
+                    Mascota newmasc = Mascota.nextMascota(entrada);
+                    newmasc.saveFile("mascotas.txt");  
+                    System.out.println("Sus datos fueron registrados");
+                    break;                
+                    
                 case '3':
                     System.out.println("Ingreso la opcion 3");
+                    System.out.println("Ingrese los datos del Concurso: ");
+                    Concurso newconcurso = Concurso.nextConcurso(entrada);
+                    newconcurso.saveFile("concursos.txt");  
+                    System.out.println("Sus datos fueron registrados");
                     break;
+                    
                 case '4':
                     System.out.println("Ingreso la opcion 4");
                     break;
+                    
                 case '5':
                     System.out.println("Ingreso la opcion 5");
                     break;
+                    
                 case '6':
                     System.out.println("Ingreso la opcion 6");
                     break;
+                    
                 case '7':
                     System.out.println("Ingreso la opcion 7");
                     System.out.println("Ingrese los datos del Miembro del Jurado: ");
@@ -57,12 +72,19 @@ public class MenuOpciones {
                     newjurado.saveFile("miembroJurados.txt");  
                     System.out.println("Sus datos fueron registrados");
                     break;
+                    
                 case '8':
                     System.out.println("Ingreso la opcion 8");
                     break;
+                    
+                case '9':
+                    System.out.println("Gracias por su tiempo");
+                    break;
+                    
                 default:
                     System.out.println("Opcion no valida...");
                     break;
+                    
             }
         }while(op != '9');
        

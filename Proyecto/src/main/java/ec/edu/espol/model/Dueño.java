@@ -24,6 +24,7 @@ public class Dueño extends Persona{
     public Dueño(int id, String direccion, String nombres, String apellidos, String telefono, String email) {
         super(id, nombres, apellidos, telefono, email);
         this.direccion = direccion;
+        
     }
 
     public void saveFile(String nomfile){
@@ -44,7 +45,7 @@ public class Dueño extends Persona{
         try(Scanner sc = new Scanner(new File(nomfile))){
             while(sc.hasNextLine()){
             String linea = sc.nextLine();
-            String[] tokens = linea.split("|");
+            String[] tokens = linea.split("\\|");
             Dueño dueñ = new Dueño(Integer.parseInt(tokens[0]),tokens[1],tokens[2],tokens[3],tokens[4],tokens[5]);
             dueños.add(dueñ);
             }//se podia agregar a los dueños que habia     
@@ -58,7 +59,6 @@ public class Dueño extends Persona{
     public static Dueño nextDueño(Scanner sc){
         //this.id+"|"+this.direccion+"|"+this.nombres+"|"+this.apellidos+"|"+this.telefono+"|"+this.email
         System.out.println("Su id es:");
-        System.out.println(Dueño.readfromfile("dueños.txt").size());
         int id = Dueño.readfromfile("dueños.txt").size() + 1;     
         System.out.println(id);
         System.out.println("Ingrese direccion: ");
@@ -76,6 +76,38 @@ public class Dueño extends Persona{
         return dueño;
         
     }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public ArrayList<Mascota> getMascotas() {
+        return mascotas;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    
+    
+    
+    
 
    
     @Override
