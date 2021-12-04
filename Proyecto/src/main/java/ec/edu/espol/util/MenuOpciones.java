@@ -8,6 +8,8 @@ package ec.edu.espol.util;
 import ec.edu.espol.model.Concurso;
 import ec.edu.espol.model.Criterio;
 import ec.edu.espol.model.Dueño;
+import ec.edu.espol.model.Evaluacion;
+import ec.edu.espol.model.Inscripcion;
 import ec.edu.espol.model.Mascota;
 import ec.edu.espol.model.MiembroJurado;
 import ec.edu.espol.model.Premio;
@@ -73,6 +75,10 @@ public class MenuOpciones {
                     
                 case '6':
                     System.out.println("Ingreso la opcion 6");
+                    System.out.println("Ingrese los datos de Inscripcion: ");
+                    Inscripcion newins = Inscripcion.nextInscripcion(entrada);
+                    newins.saveFile("inscripciones.txt");  
+                    System.out.println("Sus datos fueron registrados");
                     break;
                     
                 case '7':
@@ -85,6 +91,10 @@ public class MenuOpciones {
                     
                 case '8':
                     System.out.println("Ingreso la opcion 8");
+                    System.out.println("Ingrese los datos de Evaluacion: ");
+                    Evaluacion neweva = Evaluacion.nextEvaluacion(entrada);
+                    neweva.saveFile("evaluaciones.txt");  
+                    System.out.println("Sus datos fueron registrados");
                     break;
                     
                 case '9':
