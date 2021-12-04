@@ -5,8 +5,12 @@
  */
 package ec.edu.espol.model;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -30,7 +34,56 @@ public class Inscripcion {
         this.valor = valor;
         this.fechainscripcion = fechainscripcion;
     }
+    public void saveFile(String nomfile){
+        try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true)))
+        {
+            pw.println(this.id+"|"+this.idMascotas+"|"+this.idConcurso+"|"+this.valor+"|"+this.fechainscripcion);       
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
     
+    public static ArrayList<Inscripcion> readfromfile(String nomfile){
+        ArrayList<Inscripcion> inscripciones = new ArrayList<>();
+        try(Scanner sc = new Scanner(new File(nomfile))){
+            while(sc.hasNextLine()){
+                String linea = sc.nextLine();
+                String[] tokens = linea.split("\\|");
+                Inscripcion inscri = new Inscripcion(Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]),LocalDate.parse(tokens[4]));
+                inscripciones.add(inscri);
+            } 
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }        
+        return inscripciones;
+    }
+    
+    public static Inscripcion nextInscripcion (Scanner sc){
+        sc.useDelimiter("\n");
+        //int id, int idMascotas, int idConcurso, double valor, LocalDate fechainscripcion
+        System.out.println("Su id es:");
+        int id = Criterio.readfromfile("inscripciones.txt").size() + 1;     
+        System.out.println(id);
+        System.out.println("Ingrese ID de la Mascota: ");
+        int masc = sc.nextInt();
+        System.out.println("Ingrese el ID del Concurso: ");
+        int conc = sc.nextInt();
+        System.out.println("Ingrese el valor de la inscripción: ");
+        double valor = sc.nextDouble();
+        System.out.println("Ingrese la fecha de la inscripción (yyyy-mm-dd):");
+        LocalDate finsc = LocalDate.parse(sc.next());
+        Inscripcion inscrip = new Inscripcion(id,masc,conc,valor,finsc);
+        return inscrip;  
+           
+    }
+    @Override
+    
+    public String toString() {
+        return String.valueOf(this.id)+"-"+this.idMascotas+"-"+this.idConcurso+"-"+this.valor+"-"+this.fechainscripcion;
+        
+    }
     
     
     
