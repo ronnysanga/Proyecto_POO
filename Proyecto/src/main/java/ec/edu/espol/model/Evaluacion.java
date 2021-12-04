@@ -10,6 +10,7 @@ package ec.edu.espol.model;
  * @author dell
  */
 public class Evaluacion {
+    private int id;
     private int idinscripcion;
     private int idMiembroJurado;
     private int idCriterio;
@@ -17,5 +18,15 @@ public class Evaluacion {
     private Inscripcion inscripcion;
     private MiembroJurado miembroJurado;
     private Criterio criterio;
+
+    public Evaluacion(int id, int idinscripcion, int idMiembroJurado, int idCriterio, double nota) {
+        this.id = id;
+        this.idinscripcion = idinscripcion;
+        this.idMiembroJurado = idMiembroJurado;
+        this.idCriterio = idCriterio;
+        this.nota = nota;
+    }
+    
+    
     
 }
