@@ -6,9 +6,11 @@
 package ec.edu.espol.util;
 
 import ec.edu.espol.model.Concurso;
+import ec.edu.espol.model.Criterio;
 import ec.edu.espol.model.Dueño;
 import ec.edu.espol.model.Mascota;
 import ec.edu.espol.model.MiembroJurado;
+import ec.edu.espol.model.Premio;
 import java.util.Scanner;
 
 /**
@@ -55,10 +57,18 @@ public class MenuOpciones {
                     
                 case '4':
                     System.out.println("Ingreso la opcion 4");
+                    System.out.println("Ingrese los datos del Premio: ");
+                    Premio newprem = Premio.nextPremio(entrada);
+                    newprem.saveFile("premios.txt");  
+                    System.out.println("Sus datos fueron registrados");
                     break;
                     
                 case '5':
                     System.out.println("Ingreso la opcion 5");
+                    System.out.println("Ingrese los datos de Criterio: ");
+                    Criterio newcrit = Criterio.nextCriterio(entrada);
+                    newcrit.saveFile("criterios.txt");  
+                    System.out.println("Sus datos fueron registrados");
                     break;
                     
                 case '6':

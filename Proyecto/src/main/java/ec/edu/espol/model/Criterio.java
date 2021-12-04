@@ -23,6 +23,7 @@ public class Criterio {
     private Concurso concurso;
     
     //cambio
+    //id|descripcion
 
     public Criterio(int id, String descripcion) {
         this.id = id;
@@ -45,8 +46,8 @@ public class Criterio {
         try(Scanner sc = new Scanner(new File(nomfile))){
             while(sc.hasNextLine()){
             String linea = sc.nextLine();
-            String[] tokens = linea.split("|");
-            Criterio crite = new Criterio((tokens[0]),tokens[1]);
+            String[] tokens = linea.split("\\|");
+            Criterio crite = new Criterio(Integer.parseInt(tokens[0]),tokens[1]);
             criterios.add(crite);
             }//se podia agregar a los premios que habia     
         }
@@ -56,13 +57,12 @@ public class Criterio {
         return criterios;
     }
     public static Criterio nextCriterio (Scanner sc){
+        sc.useDelimiter("\n");
         System.out.println("Su id es:");
-        System.out.println(Criterio.readfromfile("criterios.txt").size());
         int id = Criterio.readfromfile("criterios.txt").size() + 1;     
         System.out.println(id);
         System.out.println("Ingrese descripcion: ");
         String descrip = sc.next();
-        
         Criterio criterios = new Criterio(id, descrip);
         return criterios;  
            
