@@ -69,6 +69,7 @@ public class Concurso {
     
     public static Concurso nextConcurso(Scanner sc){
         //id double costo, String nombre, Date fecha, Date fechainscripcion, Date fechaCierreinscripcion, String tematica
+        sc.useDelimiter("\n");
         System.out.println("Su id es:");
         int id = Dueño.readfromfile("concursos.txt").size() + 1;     
         System.out.println(id);

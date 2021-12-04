@@ -54,6 +54,7 @@ public class MiembroJurado extends Persona {
     }
   
     public static MiembroJurado nextMiembroJurado (Scanner sc){
+        sc.useDelimiter("\n");
         System.out.println("Su id es:");
         int id = MiembroJurado.readfromfile("miembroJurados.txt").size() + 1;     
         System.out.println(id);

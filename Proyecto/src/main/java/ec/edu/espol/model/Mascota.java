@@ -64,6 +64,7 @@ public class Mascota {
 
     public static Mascota nextMascota(Scanner sc) {
         //int id, String emailDueño, String nombre, String raza, String tipo, LocalDate fechanacimiento
+        sc.useDelimiter("\n");
         System.out.println("Su id es:");
         int id = Mascota.readfromfile("mascotas.txt").size() + 1;
         System.out.println(id);

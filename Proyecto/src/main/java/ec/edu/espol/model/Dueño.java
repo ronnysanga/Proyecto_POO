@@ -58,6 +58,7 @@ public class Dueño extends Persona{
     
     public static Dueño nextDueño(Scanner sc){
         //this.id+"|"+this.direccion+"|"+this.nombres+"|"+this.apellidos+"|"+this.telefono+"|"+this.email
+        sc.useDelimiter("\n");
         System.out.println("Su id es:");
         int id = Dueño.readfromfile("dueños.txt").size() + 1;     
         System.out.println(id);
