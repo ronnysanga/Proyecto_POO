@@ -37,6 +37,36 @@ public class Concurso {
         this.fechaCierreinscripcion = fechaCierreinscripcion;
         this.tematica = tematica;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public double getCosto() {
+        return costo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public LocalDate getFechaevento() {
+        return fechaevento;
+    }
+
+    public LocalDate getFechainscripcion() {
+        return fechainscripcion;
+    }
+
+    public LocalDate getFechaCierreinscripcion() {
+        return fechaCierreinscripcion;
+    }
+
+    public String getTematica() {
+        return tematica;
+    }
+    
+    
     
     public void saveFile(String nomfile){
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true)))
@@ -71,7 +101,7 @@ public class Concurso {
         //id double costo, String nombre, Date fecha, Date fechainscripcion, Date fechaCierreinscripcion, String tematica
         sc.useDelimiter("\n");
         System.out.println("Su id es:");
-        int id = Dueño.readfromfile("concursos.txt").size() + 1;     
+        int id = Concurso.readfromfile("concursos.txt").size() + 1;     
         System.out.println(id);
         System.out.println("Ingrese costo:");
         double cost = sc.nextDouble();
@@ -90,6 +120,21 @@ public class Concurso {
         return conc;
         
     }
+    
+    //Metodo estatico que recibe el nombreConc y devuelve id
+    //id, double costo, String nombre, Date fecha, Date fechainscripcion, Date fechaCierreinscripcion, String tematica
+    public static int buscaId(String name){
+        int id = 0;
+        ArrayList<Concurso> concursos = Concurso.readfromfile("concursos.txt");
+        for (Concurso conc: concursos){
+            String nomb = conc.getNombre();
+            if (nomb.equals(name)){
+                id = conc.getId();
+            }
+        }
+        return id;
+    }
+    
 
     @Override
     public String toString() {

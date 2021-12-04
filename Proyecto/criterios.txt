@@ -1,3 +1,7 @@
-1|asd
-1|codigo
-3|dadadada
+1|la mascara|3
+2|las botas|3
+6|botas|2
+7|mascara|2
+8|camisa|2
+6|masc|3
+7|bot|3

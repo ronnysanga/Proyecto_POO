@@ -56,18 +56,30 @@ public class MenuOpciones {
                     break;
                     
                 case '4':
-                    System.out.println("Ingreso la opcion 4");
-                    System.out.println("Ingrese los datos del Premio: ");
-                    Premio newprem = Premio.nextPremio(entrada);
-                    newprem.saveFile("premios.txt");  
+                    System.out.println("Ingreso la opcion 4");                   
+                    Scanner sc = new Scanner(System.in);
+                    sc.useDelimiter("\n");
+                    System.out.println("Ingrese el nombre del concurso: ");
+                    String nameConcurso = sc.next();
+                    int idconc = Concurso.buscaId(nameConcurso);
+                    System.out.println("Ingrese cuantos premios desea poner:");
+                    int lugares = sc.nextInt();
+                    System.out.println("Ingrese los datos de los Premios: ");
+                    Premio.numPremios(lugares, idconc);
                     System.out.println("Sus datos fueron registrados");
                     break;
                     
                 case '5':
                     System.out.println("Ingreso la opcion 5");
-                    System.out.println("Ingrese los datos de Criterio: ");
-                    Criterio newcrit = Criterio.nextCriterio(entrada);
-                    newcrit.saveFile("criterios.txt");  
+                    Scanner scc = new Scanner(System.in);
+                    scc.useDelimiter("\n");
+                    System.out.println("Ingrese el nombre del concurso: ");
+                    String nombConcurso = scc.next();
+                    int idConc = Concurso.buscaId(nombConcurso);
+                    System.out.println("Ingrese cuantos criterios desea poner:");
+                    int numCrit = scc.nextInt();
+                    System.out.println("Ingrese los datos de los Criterios: ");
+                    Criterio.numCriterios(numCrit, idConc);
                     System.out.println("Sus datos fueron registrados");
                     break;
                     

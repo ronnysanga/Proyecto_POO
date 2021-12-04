@@ -1,2 +1,5 @@
-1|1|gano
-2|6|dadadda
+1|1|aaa|2
+2|2|aaa|2
+3|3|aaaa|2
+4|1|coche|3
+5|2|casa|3

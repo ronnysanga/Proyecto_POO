@@ -27,17 +27,18 @@ public class Premio {
     
     //cambio
 
-    public Premio(int id, int lugar, String descripcion) {
+    public Premio(int id, int lugar, String descripcion,int idConcurso) {
         this.id = id;
         this.lugar = lugar;
         this.descripcion = descripcion;
+        this.idConcurso = idConcurso;
     }
   
     public void saveFile(String nomfile){
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true)))
         {
             
-            pw.println(this.id+"|"+this.lugar+"|"+this.descripcion); 
+            pw.println(this.id+"|"+this.lugar+"|"+this.descripcion+"|"+this.idConcurso); 
                      
         }
         catch(Exception e){
@@ -51,7 +52,7 @@ public class Premio {
             while(sc.hasNextLine()){
             String linea = sc.nextLine();
             String[] tokens = linea.split("\\|");
-            Premio prem = new Premio(Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]),tokens[2]);
+            Premio prem = new Premio(Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]),tokens[2],Integer.parseInt(tokens[3]));
             premios.add(prem);
             }//se podia agregar a los premios que habia     
         }
@@ -60,18 +61,26 @@ public class Premio {
         }        
         return premios;
     }
-    public static Premio nextPremio (Scanner sc){
+    public static Premio nextPremio (Scanner sc,int lug, int idConc){
         System.out.println("Su id es:");
         int id = Premio.readfromfile("premios.txt").size() + 1;     
         System.out.println(id);
-        System.out.println("Ingrese lugar: ");
-        int lug = sc.nextInt();
         System.out.println("Ingrese descripcion: ");
         String descrip = sc.next();        
-        Premio premios = new Premio(id, lug, descrip);
+        Premio premios = new Premio(id, lug, descrip,idConc);
         return premios;  
            
     }
+    
+    public static void numPremios(int lugares,int id){
+        for (int i = 1; i <= lugares; i++){
+            System.out.println("Lugar: "+ i);
+            Scanner sc = new Scanner(System.in);
+            Premio newpremio = Premio.nextPremio(sc,i,id);
+            newpremio.saveFile("premios.txt");
+        }
+    }
+    
     @Override
     
     public String toString() {

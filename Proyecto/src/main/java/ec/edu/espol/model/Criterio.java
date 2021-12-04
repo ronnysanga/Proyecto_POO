@@ -25,16 +25,17 @@ public class Criterio {
     //cambio
     //id|descripcion
 
-    public Criterio(int id, String descripcion) {
+    public Criterio(int id, String descripcion,int idConcurso) {
         this.id = id;
         this.descripcion = descripcion;
+        this.idConcurso = idConcurso;
     }
     
     public void saveFile(String nomfile){
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true)))
         {
             
-            pw.println(this.id+"|"+this.descripcion); 
+            pw.println(this.id+"|"+this.descripcion+"|"+this.idConcurso); 
                      
         }
         catch(Exception e){
@@ -47,7 +48,7 @@ public class Criterio {
             while(sc.hasNextLine()){
             String linea = sc.nextLine();
             String[] tokens = linea.split("\\|");
-            Criterio crite = new Criterio(Integer.parseInt(tokens[0]),tokens[1]);
+            Criterio crite = new Criterio(Integer.parseInt(tokens[0]),tokens[1],Integer.parseInt(tokens[2]));
             criterios.add(crite);
             }//se podia agregar a los premios que habia     
         }
@@ -56,17 +57,27 @@ public class Criterio {
         }        
         return criterios;
     }
-    public static Criterio nextCriterio (Scanner sc){
+    public static Criterio nextCriterio (Scanner sc,int idcon){
         sc.useDelimiter("\n");
         System.out.println("Su id es:");
         int id = Criterio.readfromfile("criterios.txt").size() + 1;     
         System.out.println(id);
         System.out.println("Ingrese descripcion: ");
         String descrip = sc.next();
-        Criterio criterios = new Criterio(id, descrip);
+        Criterio criterios = new Criterio(id, descrip,idcon);
         return criterios;  
            
     }
+    
+    public static void numCriterios(int criterios,int idcon){
+        for (int i = 1; i <= criterios; i++){
+            System.out.println("Criterio: "+ i);
+            Scanner sc = new Scanner(System.in);
+            Criterio newcriterio = Criterio.nextCriterio(sc,idcon);
+            newcriterio.saveFile("criterios.txt");
+        }
+    }   
+    
     @Override
     
     public String toString() {
