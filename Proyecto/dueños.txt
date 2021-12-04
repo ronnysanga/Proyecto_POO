@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-1|aafa|fafaf|fafaf|faff|afafa
-2|fafafafafaf|ffafafa|ffafaf|fafafaf|fafaf
-3|hoyada|Elias|Guzman|052165|egsdamkow@gmail.com
-=======
->>>>>>> 4a978d3ad45865a9e26071d14d25c5c0ac06bde3
+1|av. jose mascote|jose|ramirez|0987456321|a@com
+2|av. marta|romel|sanchez|0945612354|b@com
+3|av. delgado|juan|perez|0947856123|c@com

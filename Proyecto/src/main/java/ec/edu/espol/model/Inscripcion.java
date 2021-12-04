@@ -16,6 +16,10 @@ import java.util.Scanner;
  *
  * @author dell
  */
+
+//inscripciones.txt
+//id|idmasc|idconc|valor|finsc
+
 public class Inscripcion {
     private int id;
     private int idMascotas;
@@ -60,21 +64,17 @@ public class Inscripcion {
         return inscripciones;
     }
     
-    public static Inscripcion nextInscripcion (Scanner sc){
+    public static Inscripcion nextInscripcion (Scanner sc,int idmascota,int idconcurso){
         sc.useDelimiter("\n");
         //int id, int idMascotas, int idConcurso, double valor, LocalDate fechainscripcion
         System.out.println("Su id es:");
         int id = Criterio.readfromfile("inscripciones.txt").size() + 1;     
         System.out.println(id);
-        System.out.println("Ingrese ID de la Mascota: ");
-        int masc = sc.nextInt();
-        System.out.println("Ingrese el ID del Concurso: ");
-        int conc = sc.nextInt();
         System.out.println("Ingrese el valor de la inscripción: ");
         double valor = sc.nextDouble();
         System.out.println("Ingrese la fecha de la inscripción (yyyy-mm-dd):");
         LocalDate finsc = LocalDate.parse(sc.next());
-        Inscripcion inscrip = new Inscripcion(id,masc,conc,valor,finsc);
+        Inscripcion inscrip = new Inscripcion(id,idmascota,idconcurso,valor,finsc);
         return inscrip;  
            
     }

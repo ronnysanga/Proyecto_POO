@@ -23,6 +23,7 @@ public class MenuOpciones {
     
     public static void menu(){
         Scanner entrada = new Scanner(System.in);
+        entrada.useDelimiter("\n");
         char op = ' ';
         do{
             System.out.println("Menu de opciones:\r\n"+
@@ -44,7 +45,10 @@ public class MenuOpciones {
                 case '2':
                     System.out.println("Ingreso la opcion 2");
                     System.out.println("Ingrese los datos de la mascota: ");
-                    Mascota newmasc = Mascota.nextMascota(entrada);
+                    System.out.println("Ingrese email del Dueño:");
+                    String emaildueño = entrada.next();
+                    int idDueño = Dueño.buscaId(emaildueño);
+                    Mascota newmasc = Mascota.nextMascota(entrada, idDueño);
                     newmasc.saveFile("mascotas.txt");  
                     System.out.println("Sus datos fueron registrados");
                     break;                
@@ -59,13 +63,11 @@ public class MenuOpciones {
                     
                 case '4':
                     System.out.println("Ingreso la opcion 4");                   
-                    Scanner sc = new Scanner(System.in);
-                    sc.useDelimiter("\n");
                     System.out.println("Ingrese el nombre del concurso: ");
-                    String nameConcurso = sc.next();
+                    String nameConcurso = entrada.next();
                     int idconc = Concurso.buscaId(nameConcurso);
                     System.out.println("Ingrese cuantos premios desea poner:");
-                    int lugares = sc.nextInt();
+                    int lugares = entrada.nextInt();
                     System.out.println("Ingrese los datos de los Premios: ");
                     Premio.numPremios(lugares, idconc);
                     System.out.println("Sus datos fueron registrados");
@@ -73,13 +75,11 @@ public class MenuOpciones {
                     
                 case '5':
                     System.out.println("Ingreso la opcion 5");
-                    Scanner scc = new Scanner(System.in);
-                    scc.useDelimiter("\n");
                     System.out.println("Ingrese el nombre del concurso: ");
-                    String nombConcurso = scc.next();
+                    String nombConcurso = entrada.next();
                     int idConc = Concurso.buscaId(nombConcurso);
                     System.out.println("Ingrese cuantos criterios desea poner:");
-                    int numCrit = scc.nextInt();
+                    int numCrit = entrada.nextInt();
                     System.out.println("Ingrese los datos de los Criterios: ");
                     Criterio.numCriterios(numCrit, idConc);
                     System.out.println("Sus datos fueron registrados");
@@ -88,7 +88,13 @@ public class MenuOpciones {
                 case '6':
                     System.out.println("Ingreso la opcion 6");
                     System.out.println("Ingrese los datos de Inscripcion: ");
-                    Inscripcion newins = Inscripcion.nextInscripcion(entrada);
+                    System.out.println("Ingrese nombre de la mascota: ");
+                    String nombmasc = entrada.next();
+                    int idmasc = Mascota.buscaId(nombmasc);
+                    System.out.println("Ingrese nombre del concurso");
+                    String nombconc =entrada.next();
+                    int idcon = Concurso.buscaId(nombconc);
+                    Inscripcion newins = Inscripcion.nextInscripcion(entrada, idmasc, idcon);
                     newins.saveFile("inscripciones.txt");  
                     System.out.println("Sus datos fueron registrados");
                     break;
@@ -104,7 +110,10 @@ public class MenuOpciones {
                 case '8':
                     System.out.println("Ingreso la opcion 8");
                     System.out.println("Ingrese los datos de Evaluacion: ");
-                    Evaluacion neweva = Evaluacion.nextEvaluacion(entrada);
+                    System.out.println("Ingrese email del Jurado:");
+                    String emailjurado = entrada.next();
+                    int idjurado = MiembroJurado.buscaId(emailjurado);
+                    Evaluacion neweva = Evaluacion.nextEvaluacion(entrada, idjurado);
                     neweva.saveFile("evaluaciones.txt");  
                     System.out.println("Sus datos fueron registrados");
                     break;

@@ -15,6 +15,10 @@ import java.util.Scanner;
  *
  * @author dell
  */
+
+//miembroJuradoss.txt
+//id|perfil|nombreapellido|celular|email
+
 public class MiembroJurado extends Persona {
     private String perfil;
     private ArrayList<Evaluacion> evaluaciones;
@@ -24,6 +28,37 @@ public class MiembroJurado extends Persona {
         this.perfil = perfil;
    
     }
+
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public ArrayList<Evaluacion> getEvaluaciones() {
+        return evaluaciones;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    
+    
+    
     public void saveFile(String nomfile){
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true)))
         {
@@ -73,6 +108,19 @@ public class MiembroJurado extends Persona {
         return jurado;  
            
     }
+    
+    public static int buscaId(String email){
+        int id = 0;
+        ArrayList<MiembroJurado> mjurados = MiembroJurado.readfromfile("miembroJurados.txt");
+        for (MiembroJurado jurado: mjurados){
+            String ema = jurado.getEmail();
+            if (ema.equals(email)){
+                id = jurado.getId();
+            }
+        }
+        return id;
+    }
+        
  
     @Override
     public String toString() {

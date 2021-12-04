@@ -17,6 +17,10 @@ import java.util.ArrayList;
  *
  * @author dell
  */
+
+//dueños.txt
+//id|direccion|nombre|apellido|celular|email
+
 public class Dueño extends Persona{
     private String direccion;
     private ArrayList<Mascota> mascotas;
@@ -26,6 +30,35 @@ public class Dueño extends Persona{
         this.direccion = direccion;
         
     }
+    
+        public String getDireccion() {
+        return direccion;
+    }
+
+    public ArrayList<Mascota> getMascotas() {
+        return mascotas;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    
 
     public void saveFile(String nomfile){
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true)))
@@ -78,36 +111,17 @@ public class Dueño extends Persona{
         
     }
 
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public ArrayList<Mascota> getMascotas() {
-        return mascotas;
-    }
-
-    public int getId() {
+    public static int buscaId(String email){
+        int id = 0;
+        ArrayList<Dueño> dueños = Dueño.readfromfile("dueños.txt");
+        for (Dueño due: dueños){
+            String ema = due.getEmail();
+            if (ema.equals(email)){
+                id = due.getId();
+            }
+        }
         return id;
     }
-
-    public String getNombres() {
-        return nombres;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-    
-    
-    
     
 
    

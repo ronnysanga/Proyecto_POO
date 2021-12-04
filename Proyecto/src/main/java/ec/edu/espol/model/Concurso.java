@@ -16,6 +16,10 @@ import java.util.Scanner;
  *
  * @author dell
  */
+
+//concursos.txt
+//id|valor|nombre|fevento|finscrip|fcierreinsc|tematica
+
 public class Concurso {
     private int id;
     private double costo;

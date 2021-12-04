@@ -18,6 +18,7 @@ import java.util.Scanner;
 
 //premios.txt
 //id|lugar|descripcion
+
 public class Premio {
     private int id;
     private int lugar;

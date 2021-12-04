@@ -16,6 +16,10 @@ import java.util.Scanner;
  *
  * @author dell
  */
+
+//evaluaciones.txt
+//id|idinsc|idmiem|idcrit|nota
+
 public class Evaluacion {
     private int id;
     private int idinscripcion;
@@ -33,6 +37,41 @@ public class Evaluacion {
         this.idCriterio = idCriterio;
         this.nota = nota;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getIdinscripcion() {
+        return idinscripcion;
+    }
+
+    public int getIdMiembroJurado() {
+        return idMiembroJurado;
+    }
+
+    public int getIdCriterio() {
+        return idCriterio;
+    }
+
+    public double getNota() {
+        return nota;
+    }
+
+    public Inscripcion getInscripcion() {
+        return inscripcion;
+    }
+
+    public MiembroJurado getMiembroJurado() {
+        return miembroJurado;
+    }
+
+    public Criterio getCriterio() {
+        return criterio;
+    }
+    
+    
+    
     public void saveFile(String nomfile){
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true)))
         {
@@ -60,7 +99,7 @@ public class Evaluacion {
         return evaluaciones;
     }
     
-    public static Evaluacion nextEvaluacion (Scanner sc){
+    public static Evaluacion nextEvaluacion (Scanner sc,int idmj){
         sc.useDelimiter("\n");
         //int id, int idinscripcion, int idMiembroJurado, int idCriterio, double nota
         System.out.println("Su id es:");
@@ -68,16 +107,17 @@ public class Evaluacion {
         System.out.println(id);
         System.out.println("Ingrese ID de la Inscripción: ");
         int insc = sc.nextInt();
-        System.out.println("Ingrese el ID del Miembro del Jurado: ");
-        int miem = sc.nextInt();
         System.out.println("Ingrese el ID del Criterio a evaluar: ");
         int crit = sc.nextInt();
         System.out.println("Ingrese la Nota: ");
         double nota = sc.nextDouble();
-        Evaluacion evalu = new Evaluacion(id,insc,miem,crit,nota);
+        Evaluacion evalu = new Evaluacion(id,insc,idmj,crit,nota);
         return evalu;  
            
     }
+    
+    
+    
     @Override
     
     public String toString() {

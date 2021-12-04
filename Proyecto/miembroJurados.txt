@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-1|dadad|dadada|dadad|45613|dada
-2|dadada|dadadada|fafafafaf|45613|fafaf
-3|fsfaafa|fafafa|fafa|556|fafafaf
-4|fafafaf|fafafa|fafaf|fafaf|fafafa
-5|ghgdrg|drgd|bfdd|dfd|dbf
-=======
->>>>>>> 4a978d3ad45865a9e26071d14d25c5c0ac06bde3
+1|ingeniero|roberto|sanchez|094567812|rsa@com
+2|arquitecto|juan|perez|091564782|jpe@com
+3|diseñador|toreto|collaguazo|0948567123|tco@com

@@ -15,6 +15,10 @@ import java.util.Scanner;
  *
  * @author dell
  */
+
+//criterios.txt
+//id|criterio|idconcurso
+
 public class Criterio {
     private int id;
     private int idConcurso;
